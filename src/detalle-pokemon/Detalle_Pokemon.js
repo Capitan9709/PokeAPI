@@ -26,11 +26,16 @@ function DetallePokemon(){
                 <div className="text-bg-dark d-flex align-items-center">
                     <div className="text-start ms-5 col-5">
                         <h1>Caracteristicas: {name.toUpperCase()}</h1>
+                        <hr/>
                         <h2>Nº en la Pokedex: {pokemonData.id}</h2>
-                        <h3>Nombre: {pokemonData.name.toUpperCase()}</h3>
-                        <h3>Altura: {pokemonData.height}</h3>
-                        <h3>Peso: {pokemonData.weight}</h3>
-                        <h3>Experiencia Base: {pokemonData.base_experience}</h3>
+                        <h3>Nombre: <b className="text-warning">{pokemonData.name.toUpperCase()}</b></h3>
+                        <h3>Altura: <b className="text-warning">{pokemonData.height}</b> Decimetros</h3>
+                        <h3>Peso: <b className="text-warning">{pokemonData.weight}</b> Hectogramos</h3>
+                        <h3>Experiencia Base: <b className="text-warning">{pokemonData.base_experience}</b></h3>
+                        <h3>Tipos: </h3>
+                        <ul>
+                            {pokemonData.types.map((tipo) => <li><b className="text-warning">{tipo.type.name.toUpperCase()}</b></li>)}
+                        </ul>
                     </div>
                     
                     <div className="text-center col-6">
