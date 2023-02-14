@@ -1,10 +1,13 @@
 import { useState, useEffect } from "react";
 import { Carousel } from "react-bootstrap";
 import "./Pokemon.css";
+import {BrowserRouter, Route, Routes, Link} from 'react-router-dom';
 
-function Pokemon({ pokeUrl}) {
+function Pokemon({ pokeUrl }) {
+
+
     const [pokemonData, setPokemonData] = useState({});
-    const [hasLoaded, setHasLoaded] = useState(false);
+    const [cargado, setCargado] = useState(false);
     
     useEffect(() => { getPokemonData() }, []);
 
@@ -12,20 +15,22 @@ function Pokemon({ pokeUrl}) {
         fetch(pokeUrl)
         .then((response) => response.json())  
         .then((apiData) => {
+            console.log(apiData);
             setPokemonData(apiData);
-            setHasLoaded(true);
+            setCargado(true);
         });
     }
 
-    if(hasLoaded){
+    if(cargado){
         return(
             <>
-            <div className="card col-lg-3 mb-3 mt-3 mx-5 shadow p-3 mb-5 bg-body-tertiary">
+            <div className="card col-lg-3 mb-3 mt-3 mx-5 shadow p-3 mb-5 bg-body-tertiary rounded">
                 <img src={pokemonData.sprites.front_default} className="card-img-top" alt={pokemonData.name}/>
                 <div className="card-body">
                     <h5 className="card-title fs-2">{pokemonData.name.toUpperCase()}</h5>
                     <h6 className="card-subtitle mb-2 text-muted">{pokemonData.types[0].type.name.toUpperCase()}</h6>
-                    <button className="btn btn-danger mt-4" data-bs-toggle="modal" data-bs-target={`#${pokemonData.name}Detail`}>Saber más</button>
+                    {/* <button className="btn btn-danger mt-4" data-bs-toggle="modal" data-bs-target={`#${pokemonData.name}Detail`}>Saber más</button> */}
+                    <Link className="btn btn-danger mt-4" to={`/detalle/${pokemonData.name}`}>Saber más</Link>
                 </div>
             </div>
 

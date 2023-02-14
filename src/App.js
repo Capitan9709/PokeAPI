@@ -1,52 +1,29 @@
-import logo from './logo.svg';
 import './App.css';
-import {useState, useEffect} from 'react';
-import Pokemon from './pokemon/Pokemon';
+import {BrowserRouter, Route, Routes, Link} from 'react-router-dom';
+import ShowPokemons from './show_pokemons/Show-Pokemons';
+import DetallePokemon from './detalle-pokemon/Detalle_Pokemon';
+import LandingPage from './landing-page/Landing_Page';
 import Cabecera from './cabecera/Cabecera';
 import Pie from './pie/Pie';
+import ListaDatos from './listaDatos/listaDatos';
 
 function App() {
 
-  const [listaPokemons, setListaPokemon] = useState([]);
-  const [urlPokeApi, setUrlPokeApi] = useState('https://pokeapi.co/api/v2/pokemon?limit=8');
-
-  // const datosPokemon = [];
-
-  useEffect(() => cargaTodos(),[] );
-
-  function cargaTodos(){
-
-    fetch(urlPokeApi)
-    .then(response => response.json())
-    .then(data => {
-      setListaPokemon(listaPokemons.concat(data.results))
-      setUrlPokeApi(data.next)
-      console.log("peticion")
-      console.log(data)
-    });
-  }
-
-  function traerMas(){
-    cargaTodos();
-  }
-
-  function traerDatosUno(){
-
-  }
-
   return (
     <div className="App">
-      <Cabecera/>
-      <div className="container">
-        <div className='row'>
-          {listaPokemons.map((pokemon) => 
-            <Pokemon key={pokemon.name} pokeUrl={pokemon.url}/>
-            
-          )}
-        </div>
-      </div>
-      <button className="btn btn-warning my-4" onClick={traerMas}>Cargar Mas</button>
-      <Pie/>
+      
+      <BrowserRouter>
+        <Cabecera/>
+        <Routes>
+          <Route path="/" element={<LandingPage />}></Route>
+          <Route path="/pokemons" element={<ShowPokemons />}></Route>
+          <Route path="/detalle/:name" element={<DetallePokemon />}></Route>
+          <Route path="/lista" element={<ListaDatos />}></Route>
+          <Route path="*" element={<h1>404 - Not Found</h1>}></Route>
+        </Routes>
+        <Pie/>
+      </BrowserRouter>
+
     </div>
   );
 }
