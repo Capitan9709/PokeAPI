@@ -9,10 +9,10 @@ function Cabecera(){
             </div>
             <div className='d-flex justify-content-center py-3' id='navbarNav'>
                 <ul className='nav nav-pills'>
-                    <li className='nav-item mx-2'><Link type="button" class="btn btn-warning" to='/'>Inicio</Link></li>
-                    <li className='nav-item mx-2'><Link type="button" class="btn btn-warning" to='/Pokemons'>Pokemons</Link></li>
-                    <li className='nav-item mx-2'><Link type="button" class="btn btn-warning" to='/Jugar'>Jugar</Link></li>
-                    <li className='nav-item mx-2'><Link type="button" class="btn btn-warning" to='/lista'>lista</Link></li>                
+                    <li className='nav-item mx-2'><Link type="button" className="btn btn-warning" to='/'>Inicio</Link></li>
+                    <li className='nav-item mx-2'><Link type="button" className="btn btn-warning" to='/Pokemons'>Pokemons</Link></li>
+                    <li className='nav-item mx-2'><Link type="button" className="btn btn-warning" to='/Jugar'>Jugar</Link></li>
+                    <li className='nav-item mx-2'><Link type="button" className="btn btn-warning" to='/lista'>lista</Link></li>                
                 </ul>
             </div>
         </header>

@@ -6,6 +6,7 @@ import LandingPage from './landing-page/Landing_Page';
 import Cabecera from './cabecera/Cabecera';
 import Pie from './pie/Pie';
 import ListaDatos from './listaDatos/listaDatos';
+import Juego from './juego/juego';
 
 function App() {
 
@@ -19,6 +20,7 @@ function App() {
           <Route path="/pokemons" element={<ShowPokemons />}></Route>
           <Route path="/detalle/:name" element={<DetallePokemon />}></Route>
           <Route path="/lista" element={<ListaDatos />}></Route>
+          <Route path="/jugar" element={<Juego/>}></Route>
           <Route path="*" element={<h1>404 - Not Found</h1>}></Route>
         </Routes>
         <Pie/>
