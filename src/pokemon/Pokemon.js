@@ -22,7 +22,7 @@ function Pokemon({ pokeUrl }) {
 
     if(cargado){
         return(
-            <div className="card col-lg-3 mt-3 mx-5 shadow p-3 mb-5 bg-body-tertiary rounded">
+            <div className="card col-lg-3 mt-3 mx-5 shadow p-3 mb-5 bg-body-secondary rounded">
                 <img src={pokemonData.sprites.front_default} className="card-img-top" alt={pokemonData.name}/>
                 <div className="card-body">
                     <h5 className="card-title fs-2">{pokemonData.name.toUpperCase()}</h5>

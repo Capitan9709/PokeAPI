@@ -4,7 +4,7 @@ import {useState, useEffect} from 'react';
 function ShowPokemons() {
 
     const [listaPokemons, setListaPokemon] = useState([]);
-    const [urlPokeApi, setUrlPokeApi] = useState('https://pokeapi.co/api/v2/pokemon?limit=8');
+    const [urlPokeApi, setUrlPokeApi] = useState('https://pokeapi.co/api/v2/pokemon?limit=9');
 
   // const datosPokemon = [];
 

@@ -38,7 +38,7 @@ function ListaDatos(){
     }
 
     return(
-        <div className="todo-content">
+        <div className="todo-content text-bg-dark pb-2">
         <h1>Componente Lista Datos</h1>
         <button onClick={escribeDatosFirestore}>Escribe</button>
     {

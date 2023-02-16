@@ -29,13 +29,30 @@ function DetallePokemon(){
                         <hr/>
                         <h2>Nº en la Pokedex: {pokemonData.id}</h2>
                         <h3>Nombre: <b className="text-warning">{pokemonData.name.toUpperCase()}</b></h3>
-                        <h3>Altura: <b className="text-warning">{pokemonData.height}</b> Decimetros</h3>
-                        <h3>Peso: <b className="text-warning">{pokemonData.weight}</b> Hectogramos</h3>
+                        <h3>Altura: <b className="text-warning">{pokemonData.height * 10}</b> Centimetros | <b className="text-warning">{pokemonData.height / 10}</b> Metros</h3>
+                        <h3>Peso: <b className="text-warning">{pokemonData.weight / 10}</b> Kilogramos</h3>
                         <h3>Experiencia Base: <b className="text-warning">{pokemonData.base_experience}</b></h3>
                         <h3>Tipos: </h3>
                         <ul>
                             {pokemonData.types.map((tipo) => <li><b className="text-warning">{tipo.type.name.toUpperCase()}</b></li>)}
                         </ul>
+                        <hr/>
+                        <table className="table text-warning">
+                            <thead>
+                                <tr>
+                                    <th>Estadistica</th>
+                                    <th>Valor</th>
+                                </tr>
+                            </thead>
+                            <tbody class="table-group-divider">
+                                {pokemonData.stats.map((est) =>
+                                <tr>
+                                    <th>{est.stat.name.toUpperCase()}</th>
+                                    <td>{est.base_stat}</td>
+                                </tr>
+                                )}    
+                            </tbody>
+                        </table>
                     </div>
                     
                     <div className="text-center col-6">
