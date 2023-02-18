@@ -2,8 +2,6 @@ import {useState, useEffect} from 'react';
 
 function Juego(){
 
-    const [listaPokemons, setListaPokemon] = useState([]);
-    const [cargado, setCargado] = useState(false);
     const [pokemonSeleccionado, setPokemonSeleccionado] = useState({});
     const [pokemonInput, setPokemonInput] = useState();
 
@@ -17,11 +15,6 @@ function Juego(){
         .then(data => {
             setPokemonSeleccionado(data)
         });
-    }
-
-    function seleccionarPokemon(){
-        const pokemon = listaPokemons[Math.floor(Math.random() * listaPokemons.length)];
-        console.log(pokemon);
     }
 
     function comprobar(){
@@ -46,16 +39,15 @@ function Juego(){
     return(
         <div className='text-bg-dark'>
             <h1 className='p-2'>Adivina el Nombre</h1>
-            <div className='d-flex justify-content-center'>
+            <div className='col-12 d-flex justify-content-center'>
                 <div className='col-6 d-flex flex-column justify-content-center'>
                     <img src={pokemonSeleccionado.sprites.front_default} className="w-50" alt={pokemonSeleccionado.name}/>
                     <div className='col-6'>
-                        <input className='form-control bg-warning rounded my-2' type="text" value={pokemonInput} // ...force the input's value to match the state variable...
+                        <input className='form-control bg-warning rounded my-2' type="text" value={pokemonInput}
                             onChange={e => setPokemonInput(e.target.value)} />
                         <button className='btn btn-warning' onClick={comprobar}>Adivinar</button>
                     </div>
                 </div>
-                
             </div>  
         </div>
     )
