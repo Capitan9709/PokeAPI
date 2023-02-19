@@ -39,12 +39,12 @@ function ListaDatos(){
 
     return(
         <div className="todo-content text-bg-dark pb-2">
-        <h1>Componente Lista Datos</h1>
-        <button onClick={escribeDatosFirestore}>Escribe</button>
+        <h1>Puntuaciones</h1>
+        {/* <button onClick={escribeDatosFirestore}>Escribe</button> */}
     {
         ejemplo.map((ejemplo)=>(
             <p key={ejemplo.id}>
-                {ejemplo.titulo}
+               Puntuacion: {ejemplo.puntuacion}
             </p>
         ))
     }
